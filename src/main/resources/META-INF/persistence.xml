@@ -1,0 +1,27 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="tutorial">
+        <description>
+            Persistence unit for the JPA tutorial of the Hibernate Getting Started Guide
+        </description>
+
+        <class>by.it_academy.jd2.Mk_JD2_95_22.vote_server.dto.entity.Artists</class>
+        <class>by.it_academy.jd2.Mk_JD2_95_22.vote_server.dto.entity.Genres</class>
+        <class>by.it_academy.jd2.Mk_JD2_95_22.vote_server.dto.entity.Vote</class>
+
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/vote" />
+            <property name="javax.persistence.jdbc.user" value="postgres" />
+            <property name="javax.persistence.jdbc.password" value="147258" />
+
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="none" />
+            <!-- none - добавляет в созданную таблицу без удаления старых данных,
+            create - создает новую таблицу с удалением предыдущей -->
+        </properties>
+    </persistence-unit>
+</persistence>
