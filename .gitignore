@@ -13,3 +13,4 @@ out/
 *.class
 *persistence.hml*
 *voteHibernate.iml*
+*.iml
