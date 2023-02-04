@@ -1,6 +1,6 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.controllers.servlet;
 
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dto.entity.Artists;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.entity.Artists;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.IArtistsService;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.fabrics.ArtistsServiceSingleton;
 

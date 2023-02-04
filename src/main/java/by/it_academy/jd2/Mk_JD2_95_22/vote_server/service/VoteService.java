@@ -1,7 +1,7 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.service;
 
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.IVoteDao;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dto.entity.Vote;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.entity.Vote;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.IArtistsService;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.IGenresService;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.IVoteService;

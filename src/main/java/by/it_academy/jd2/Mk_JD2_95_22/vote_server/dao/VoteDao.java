@@ -1,12 +1,11 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao;
 
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.IVoteDao;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dto.entity.Vote;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.entity.Vote;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 

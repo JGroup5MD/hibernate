@@ -1,16 +1,25 @@
-# Default ignored files
+### Default ignored files ###
 /shelf/
 /workspace.xml
-# Editor-based HTTP Client requests
+
+### ditor-based HTTP Client requests ###
 /httpRequests/
-# Datasource local storage ignored files
+
+### Datasource local storage ignored files ###
 /dataSources/
 /dataSources.local.xml
 target/
-.idea/
+
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
 *.iws
+*.iml
+*.ipr
+target/
 out/
 *.class
 *persistence.hml*
 *voteHibernate.iml*
-*.iml

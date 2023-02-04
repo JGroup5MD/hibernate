@@ -1,7 +1,7 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao;
 
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.IGenresDao;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dto.entity.Genres;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.entity.Genres;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

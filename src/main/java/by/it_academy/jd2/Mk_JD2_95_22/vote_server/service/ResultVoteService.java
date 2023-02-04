@@ -1,8 +1,8 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.service;
 
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dto.ResultVoteDto;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dto.entity.Artists;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dto.entity.Genres;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dto.VotingResault;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.entity.Artists;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.entity.Genres;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.IResultVoteService;
 
 import javax.persistence.EntityManagerFactory;
@@ -18,7 +18,7 @@ public class ResultVoteService implements IResultVoteService {
             Persistence.createEntityManagerFactory("tutorial");
 
     @Override
-    public ResultVoteDto getResult() {
+    public VotingResault getResult() {
 
         return null;
     }
