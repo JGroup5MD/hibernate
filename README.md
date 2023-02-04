@@ -1,6 +1,6 @@
 # Vote-Group5-Hibernate
 
-/Jenres
+#/Jenres
 To get a list of genres:
 
 (GET)http://host:port/WarFileName/genres
@@ -10,7 +10,7 @@ To create, update or delete genre use respective POST queries:
 (POST)http://host:port/WarFileName/genres?update=(genre_id)&name=(new_genre_name)
 (POST)http://host:port/WarFileName/genres?delete=(genre_id)
 
-/Singers
+#/Singers
 To get a list of performers:
 
 (GET)http://host:port/WarFileName/performers
@@ -21,12 +21,12 @@ To create, update or delete performers use respective POST queries:
 (POST)http://host:port/WarFileName/performers?delete=(performer_id)
 
 
-/vote (1 vote for performer, 3-5 votes for genre)
+#/vote (1 vote for performer, 3-5 votes for genre)
 (POST)http://host:port/WarFileName/
 vote?performer=(performer_id)&genre=(genre_id)&about=(about)&email=(email)
 
 
-/vote_Result(typically redirected to)
+#/vote_Result(typically redirected to)
 (GET)http://host:port/WarFileName/vote_result
 
 
