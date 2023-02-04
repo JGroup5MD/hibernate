@@ -12,3 +12,4 @@ target/
 out/
 *.class
 *persistence.hml*
+*voteHibernate.iml*
