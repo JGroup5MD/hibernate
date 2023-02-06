@@ -1,4 +1,4 @@
-package by.it_academy.jd2.Mk_JD2_95_22.vote_server.entity;
+package by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "genres")
-public class Genres {
+public class Jenres {
 
     @Id
     @GeneratedValue(generator = "increment")
@@ -18,10 +18,10 @@ public class Genres {
 
     private String nameGenre;
 
-    public Genres() {
+    public Jenres() {
     }
 
-    public Genres(String nameGenre) {
+    public Jenres(String nameGenre) {
         this.nameGenre = nameGenre;
     }
 

@@ -25,7 +25,10 @@ To create, update or delete performers use respective POST queries:
 
 # /vote (1 vote for performer, 3-5 votes for genre)
 _______________________________________________
+
+
 #/vote (1 vote for performer, 3-5 votes for genre)
+_______________________________________________
 
 (POST)http://host:port/WarFileName/
 vote?performer=(performer_id)&genre=(genre_id)&about=(about)&email=(email)

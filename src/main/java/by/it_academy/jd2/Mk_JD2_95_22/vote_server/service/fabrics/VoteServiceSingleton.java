@@ -16,7 +16,7 @@ public class VoteServiceSingleton {
                 if(instance == null){
                     instance = new VoteService(
                             VoteDaoSingleton.getInstance(),
-                            ArtistsServiceSingleton.getInstance(),
+                            SingerServiceSingleton.getInstance(),
                             GenresServiceSingleton.getInstance()
                     );
                 }

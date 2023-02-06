@@ -1,27 +1,27 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.service;
 
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.IArtistsDao;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.entity.Artists;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.IArtistsService;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.IDaoSinger;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity.Singers;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.ISingerService;
 
 import java.util.List;
 
-public class ArtistsService implements IArtistsService {
-    private final IArtistsDao dao;
+public class ArtistsService implements ISingerService {
+    private final IDaoSinger dao;
 
-    public ArtistsService(IArtistsDao dao) {
+    public ArtistsService(IDaoSinger dao) {
         this.dao = dao;
     }
 
     @Override
-    public List<Artists> get() {
+    public List<Singers> get() {
         return dao.get();
     }
 
     @Override
-    public Artists get(long id) {
-        List<Artists> artists = this.dao.get();
-        for (Artists art : artists){
+    public Singers get(long id) {
+        List<Singers> artists = this.dao.get();
+        for (Singers art : artists){
             if (id == art.getId()){
                 return art;
             }
@@ -41,8 +41,8 @@ public class ArtistsService implements IArtistsService {
 
     @Override
     public boolean exist(long id) {
-        List<Artists> artists = this.dao.get();
-        for (Artists art : artists){
+        List<Singers> artists = this.dao.get();
+        for (Singers art : artists){
             if (id == art.getId()){
                 return true;
             }

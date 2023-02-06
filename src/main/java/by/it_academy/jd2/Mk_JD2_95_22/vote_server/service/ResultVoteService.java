@@ -1,8 +1,8 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.service;
 
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dto.VotingResault;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.entity.Artists;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.entity.Genres;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity.Singers;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity.Jenres;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.IResultVoteService;
 
 import javax.persistence.EntityManagerFactory;
@@ -24,12 +24,12 @@ public class ResultVoteService implements IResultVoteService {
     }
 
     @Override
-    public Map<Artists, Long> getTopArtist() {
+    public Map<Singers, Long> getTopArtist() {
         return null;
     }
 
     @Override
-    public List<Genres> getTopGenre() {
+    public List<Jenres> getTopGenre() {
         return null;
     }
 }

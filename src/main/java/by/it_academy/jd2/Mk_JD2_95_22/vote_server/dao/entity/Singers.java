@@ -1,27 +1,24 @@
-package by.it_academy.jd2.Mk_JD2_95_22.vote_server.entity;
+package by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "artists")
-public class Artists {
+@Table(name = "app.Singer")
+public class Singers {
 
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     private long id;
-
+    @Column(name="name")
     private String nameArtist;
 
-    public Artists() {
+    public Singers() {
     }
 
-    public Artists(String nameArtist) {
+    public Singers(String nameArtist) {
         this.nameArtist = nameArtist;
     }
 

@@ -1,27 +1,27 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.service;
 
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.IGenresDao;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.entity.Genres;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.IJenreDAO;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity.Jenres;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.IGenresService;
 
 import java.util.List;
 
 public class GenresService implements IGenresService {
-    private final IGenresDao dao;
+    private final IJenreDAO dao;
 
-    public GenresService(IGenresDao dao) {
+    public GenresService(IJenreDAO dao) {
         this.dao = dao;
     }
 
     @Override
-    public List<Genres> get() {
+    public List<Jenres> get() {
         return dao.get();
     }
 
     @Override
-    public Genres get(long id) {
-        List<Genres> genres = this.dao.get();
-        for (Genres gen : genres){
+    public Jenres get(long id) {
+        List<Jenres> genres = this.dao.get();
+        for (Jenres gen : genres){
             if (id == gen.getId()){
                 return gen;
             }
@@ -41,8 +41,8 @@ public class GenresService implements IGenresService {
 
     @Override
     public boolean exist(long id) {
-        List<Genres> genres = this.dao.get();
-        for (Genres gen : genres){
+        List<Jenres> genres = this.dao.get();
+        for (Jenres gen : genres){
             if (id == gen.getId()){
                 return true;
             }

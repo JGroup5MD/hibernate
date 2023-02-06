@@ -1,0 +1,6 @@
+-- SCHEMA: app
+
+-- DROP SCHEMA IF EXISTS app ;
+
+CREATE SCHEMA IF NOT EXISTS app
+    AUTHORIZATION postgres;
