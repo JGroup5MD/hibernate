@@ -1,20 +1,18 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao;
 
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.IManagerConnection;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity.Singers;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SingerDAO  {
-    private  final ManagerConnection mc;
+    private  final IManagerConnection mc;
     public SingerDAO(ManagerConnection mc) {
         this.mc = mc;
     }
 
-    public List<Singers> get() {
+    public List<Singers> getAllSinger() {
         List<Singers> list=new ArrayList<>();
         try{
         mc.EntityManager().getTransaction().begin();
@@ -33,6 +31,30 @@ public class SingerDAO  {
             }
         }
     }
+
+
+    public String getOneSinger(long id) {
+        List<Singers> list=new ArrayList<>();
+        try{
+            mc.EntityManager().getTransaction().begin();
+            Singers singers=mc.EntityManager().find(Singers.class, id);
+            mc.EntityManager().getTransaction().commit();
+            if(singers==null){
+                throw new IllegalArgumentException("Not singer this is id " + id);
+            }
+            return singers.getNameArtist();
+        }catch (Exception e){
+            if(mc.EntityManager()!=null){
+                mc.EntityManager().getTransaction().rollback();
+            }
+            throw new RuntimeException("Erorr DataBase", e);
+        }finally {
+            if (mc.EntityManager()!=null){
+                mc.EntityManager().close();
+            }
+        }
+    }
+
 
     public  boolean created(String newSinger) {
         try{

@@ -1,15 +1,15 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.service;
 
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.IDaoSinger;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.ISingerDAO;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity.Singers;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.ISingerService;
 
 import java.util.List;
 
 public class ArtistsService implements ISingerService {
-    private final IDaoSinger dao;
+    private final ISingerDAO dao;
 
-    public ArtistsService(IDaoSinger dao) {
+    public ArtistsService(ISingerDAO dao) {
         this.dao = dao;
     }
 

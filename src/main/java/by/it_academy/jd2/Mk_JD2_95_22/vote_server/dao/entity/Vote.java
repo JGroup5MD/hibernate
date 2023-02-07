@@ -2,104 +2,118 @@ package by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
-@Table(name = "vote")
+@Table(name = "app.VoteWithMail")
 public class Vote {
-
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     private long id;
-    private int artist;
-    private int genre_1;
-    private int genre_2;
-    private int genre_3;
-    private int genre_4;
-    private int genre_5;
+    @Column(name="mail")
+    private String mail;
+    @Column(name="about")
     private String about;
-    private String email;
-    private LocalDateTime dt_create;
+    @Column(name="date")
+    private LocalDateTime date;
+    @ManyToOne
+    @JoinTable(
+            name="app.Singer-Vote",
+            joinColumns=
+            @JoinColumn(name="vote_id", referencedColumnName="id"),
+            inverseJoinColumns=
+            @JoinColumn(name="singer_id", referencedColumnName="id")
+    )
+    private Singers singer;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name="app.Jenre-Vote",
+            joinColumns=
+            @JoinColumn(name="vote_id", referencedColumnName="id"),
+            inverseJoinColumns=
+            @JoinColumn(name="genre_id", referencedColumnName="id")
+    )
+    private List<Jenres> genres;
+
 
     public Vote() {
     }
 
-    public Vote(int artist, int genre_1, int genre_2, int genre_3, int genre_4, int genre_5,
-                String about, String email, LocalDateTime dt_create) {
-        this.artist = artist;
-        this.genre_1 = genre_1;
-        this.genre_2 = genre_2;
-        this.genre_3 = genre_3;
-        this.genre_4 = genre_4;
-        this.genre_5 = genre_5;
+    public Vote(String mail, String about, LocalDateTime date, Singers singer, List<Jenres> genres) {
+        this.mail = mail;
         this.about = about;
-        this.email = email;
-        this.dt_create = dt_create;
+        this.date = date;
+        this.singer = singer;
+        this.genres = genres;
     }
 
-    public Vote(Vote newVote) {
-
+    public String getMail() {
+        return mail;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public int getArtist() {
-        return artist;
-    }
-
-    public int getGenre_1() {
-        return genre_1;
-    }
-
-    public int getGenre_2() {
-        return genre_2;
-    }
-
-    public int getGenre_3() {
-        return genre_3;
-    }
-
-    public int getGenre_4() {
-        return genre_4;
-    }
-
-    public int getGenre_5() {
-        return genre_5;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public String getAbout() {
         return about;
     }
 
-    public String getEmail() {
-        return email;
+    public void setAbout(String about) {
+        this.about = about;
     }
 
-    public LocalDateTime getDt_create() {
-        return dt_create;
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
+
+    public Singers getSinger() {
+        return singer;
+    }
+
+    public void setSinger(Singers singer) {
+        this.singer = singer;
+    }
+
+    public List<Jenres> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(List<Jenres> genres) {
+        this.genres = genres;
     }
 
     @Override
     public String toString() {
         return "Vote{" +
                 "id=" + id +
-                ", artist=" + artist +
-                ", genre_1=" + genre_1 +
-                ", genre_2=" + genre_2 +
-                ", genre_3=" + genre_3 +
-                ", genre_4=" + genre_4 +
-                ", genre_5=" + genre_5 +
+                ", mail='" + mail + '\'' +
                 ", about='" + about + '\'' +
-                ", email='" + email + '\'' +
-                ", dt_create=" + dt_create +
+                ", date=" + date +
+                ", singer=" + singer +
+                ", genres=" + genres +
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vote vote = (Vote) o;
+        return id == vote.id && Objects.equals(mail, vote.mail) && Objects.equals(about, vote.about) && Objects.equals(date, vote.date) && Objects.equals(singer, vote.singer) && Objects.equals(genres, vote.genres);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, mail, about, date, singer, genres);
+    }
 }
