@@ -7,6 +7,7 @@ import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics.SingerDaoSingleton
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 public class SingerServise {
     private final ISingerDAO iDaoSinger;
@@ -20,8 +21,16 @@ public class SingerServise {
     }
 
 
-    public String getNameSinger(long id){
+    public String getNameSinger(long id) {
+        List<Singers> list = get();
+        for (Singers element : list) {
+            if (Objects.equals(element.getId(), id)) {
 
+            }else {
+                throw new IllegalArgumentException("С таким " + id + " исполнителя не найдено");
+            }
+        }
+        return getNameSinger(id);
     }
 
     public boolean created(String newNameSinger, Singers singers){
@@ -70,7 +79,16 @@ public class SingerServise {
         return false;
     }
     public boolean validate(String SingerName) {
-        List<Singers> listSingers = iDaoSinger.get();
+        List<Singers> listSingers = iDaoSinger.getAllSinger();
+        for(Singers item: listSingers){
+            if ( listSingers.isEmpty() || item.getNameArtist()==null){
+                throw new IllegalArgumentException(" В коллекции нет ни одного артиста");
+            }
+            if(listSingers.size()>256){
+                throw  new IllegalArgumentException("Имя артиста не может быть болше чем 256 символоы");
+            }
+        }
+
         return true;
     }
     }
