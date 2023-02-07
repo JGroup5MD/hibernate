@@ -3,6 +3,7 @@ package by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.IMailDAO;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.IManagerConnection;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity.Mail;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics.ManagerEntitySingleton;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 public class MailDAO implements IMailDAO {
     private  final IManagerConnection mc;
     public MailDAO(ManagerConnection mc) {
-        this.mc = mc;
+        this.mc = ManagerEntitySingleton.getInstance();
     }
     public List<Mail> getAllMails(){
         List<Mail> mails;

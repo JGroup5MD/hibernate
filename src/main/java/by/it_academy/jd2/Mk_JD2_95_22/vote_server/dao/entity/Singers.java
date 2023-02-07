@@ -37,4 +37,8 @@ public class Singers {
                 ", nameArtist='" + nameArtist + '\'' +
                 '}';
     }
+
+    public void setNameArtist(String nameArtist) {
+        this.nameArtist = nameArtist;
+    }
 }

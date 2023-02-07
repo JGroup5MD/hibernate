@@ -5,5 +5,5 @@ import javax.persistence.EntityManagerFactory;
 
 public interface IManagerConnection {
     public EntityManager EntityManager();
-    public  EntityManagerFactory getInstance();
+
 }

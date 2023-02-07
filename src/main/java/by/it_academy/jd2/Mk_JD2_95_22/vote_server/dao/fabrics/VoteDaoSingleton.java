@@ -12,9 +12,9 @@ public class VoteDaoSingleton {
 
     public static IVoteDAO getInstance() {
         if(instance == null){
-            synchronized (VoteServiceSingleton.class){
+            synchronized (VoteDaoSingleton.class){
                 if(instance == null){
-                    instance = new VoteDAO();
+                    instance = new VoteDAO(ManagerEntitySingleton.getInstance());
                 }
             }
         }

@@ -40,4 +40,8 @@ public class Jenres {
                 ", nameGenre='" + nameGenre + '\'' +
                 '}';
     }
+
+    public void setNameGenre(String nameGenre) {
+        this.nameGenre = nameGenre;
+    }
 }

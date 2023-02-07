@@ -2,6 +2,8 @@ package by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao;
 
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.IManagerConnection;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity.Singers;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics.ManagerEntitySingleton;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +11,7 @@ import java.util.List;
 public class SingerDAO  {
     private  final IManagerConnection mc;
     public SingerDAO(ManagerConnection mc) {
-        this.mc = mc;
+        this.mc = ManagerEntitySingleton.getInstance();
     }
 
     public List<Singers> getAllSinger() {
