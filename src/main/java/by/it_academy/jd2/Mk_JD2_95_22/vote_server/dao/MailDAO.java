@@ -5,16 +5,18 @@ import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.IManagerConnection;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity.Mail;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics.ManagerEntitySingleton;
 
+import javax.persistence.EntityManager;
 import java.util.LinkedList;
 import java.util.List;
 
 public class MailDAO implements IMailDAO {
     private  final IManagerConnection mc;
     public MailDAO(ManagerConnection mc) {
-        this.mc = ManagerEntitySingleton.getInstance();
+        this.mc = mc;
     }
     public List<Mail> getAllMails(){
         List<Mail> mails;
+        EntityManager em=null;
         try{
             mc.EntityManager().getTransaction().begin();
             mails=mc.EntityManager().createQuery("SELECT id FROM VoteWithMail  ORDER BY date ",Mail.class).getResultList();
@@ -59,7 +61,7 @@ public class MailDAO implements IMailDAO {
         return mails;
     }
 
-    public boolean addEmail(Mail email) {
+    public boolean addMail(Mail email) {
 
         try {
            mc.EntityManager().getTransaction().begin();

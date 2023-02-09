@@ -13,7 +13,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class SingerDaoSingleton {
-    private volatile static SingerDAO instance;
+    private volatile static ISingerDAO instance;
 
     private SingerDaoSingleton() {
     }

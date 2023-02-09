@@ -1,6 +1,7 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.controllers;
 
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity.Vote;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dto.VoteDTO;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.IVoteService;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.fabrics.VoteServiceSingleton;
 
@@ -43,7 +44,7 @@ public class VoteServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html; charset=UTF-8");
 
-        List<Vote> voteList = service.get();
+        List<Vote> voteList = service.getVote();
 
         PrintWriter writer = resp.getWriter();
         voteList.forEach(p -> writer.println(p));
@@ -102,7 +103,7 @@ public class VoteServlet extends HttpServlet {
             throw new IllegalArgumentException("Вы не указали адрес электронной почты");
         }
 
-        this.service.save(new Vote(artist, genre_1, genre_2, genre_3, genre_4, genre_5, newVoteAbout, newVoteEmail, time));
+        this.service.save(newVote,newVoteAbout,newVoteEmail,newVoteArtist,newVoteGenre));
 
     }
 

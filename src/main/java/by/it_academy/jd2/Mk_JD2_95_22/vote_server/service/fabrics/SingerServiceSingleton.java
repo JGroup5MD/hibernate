@@ -1,5 +1,7 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.fabrics;
 
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.SingerDAO;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics.ManagerEntitySingleton;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics.SingerDaoSingleton;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.SingerServise;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.ISingerService;
@@ -10,7 +12,7 @@ public class SingerServiceSingleton {
     private SingerServiceSingleton() {
     }
 
-    public static ISingerService getInstance() {
+    public static SingerServise getInstance() {
         if(instance == null){
             synchronized (SingerServiceSingleton.class){
                 if(instance == null){

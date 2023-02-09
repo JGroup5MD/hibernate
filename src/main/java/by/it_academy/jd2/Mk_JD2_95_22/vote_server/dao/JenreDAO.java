@@ -10,16 +10,19 @@ import java.util.List;
 
 public class JenreDAO implements IJenreDAO {
 //
-private  final IManagerConnection mc;
-    public JenreDAO(ManagerConnection mc) {
-        this.mc = ManagerEntitySingleton.getInstance();
+ private  final IManagerConnection mc;
+
+    public JenreDAO(IManagerConnection manager) {
+        this.mc = manager;
     }
+
+
 
     public List<Jenres> getAllJenres() {
         List<Jenres> list=new ArrayList<>();
         try{
             mc.EntityManager().getTransaction().begin();
-            List <Jenres> jenres=mc.EntityManager().createQuery("SELECT id, name FROM app.Jenre ORDER BY id;").getResultList();
+            List <Jenres> jenres=mc.EntityManager().createQuery("SELECT id, name FROM app.Jenre ORDER BY id;",Jenres.class).getResultList();
             mc.EntityManager().getTransaction().commit();
             list.addAll(jenres);
             return list;

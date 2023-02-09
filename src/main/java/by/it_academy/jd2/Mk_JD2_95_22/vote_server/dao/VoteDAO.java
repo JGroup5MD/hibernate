@@ -14,8 +14,8 @@ import java.util.List;
 public class VoteDAO implements IVoteDAO {
     private  final IManagerConnection mc;
 
-    public VoteDAO(IManagerConnection mc) {
-        this.mc = mc;
+    public VoteDAO(IManagerConnection manager) {
+        this.mc = manager;
     }
     public List<Vote>  getVote(){
         List<Vote> list=new ArrayList<>();
@@ -77,7 +77,7 @@ public class VoteDAO implements IVoteDAO {
         List <Jenres> list=new ArrayList<>();
         try{
             mc.EntityManager().getTransaction().begin();
-            for(JenreDTO jenre:votes.getIdJenres()){
+            for(long jenre:votes.getIdJenres()){
                 list.add(mc.EntityManager().find(Jenres.class,jenre));
             }
             return list;

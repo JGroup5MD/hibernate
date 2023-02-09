@@ -3,11 +3,11 @@ package by.it_academy.jd2.Mk_JD2_95_22.vote_server.service;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dto.JenreDTO;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dto.SingerDTO;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dto.VoteDTO;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.IGenresService;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.IJenresService;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.IMailSender;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.ISingerService;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.fabrics.SingerServiceSingleton;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.fabrics.GenresServiceSingleton;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.fabrics.JenresServiceSingleton;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -31,7 +31,7 @@ public class MailSender implements IMailSender {
     private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
     private Properties properties = new Properties();
 
-    IGenresService genreService = GenresServiceSingleton.getInstance();
+    IJenresService genreService = JenresServiceSingleton.getInstance();
     ISingerService singerService = SingerServiceSingleton.getInstance();
 
     public void SendingEmailService(Properties prop) {

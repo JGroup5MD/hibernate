@@ -1,8 +1,8 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.controllers;
 
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity.Jenres;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.IGenresService;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.fabrics.GenresServiceSingleton;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.IJenresService;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.fabrics.JenresServiceSingleton;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,10 +19,10 @@ public class GenresServlet extends HttpServlet {
     private final String ADD = "add";
     private final String DELETE = "delete";
 
-    private final IGenresService service;
+    private final IJenresService service;
 
     public GenresServlet() {
-        this.service = GenresServiceSingleton.getInstance();
+        this.service = JenresServiceSingleton.getInstance();
     }
 
     @Override
@@ -31,7 +31,7 @@ public class GenresServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html; charset=UTF-8");
 
-        List<Jenres> genresList = service.get();
+        List<Jenres> genresList = service.getAllJenres();
 
         PrintWriter writer = resp.getWriter();
         genresList.forEach(p->writer.println(p));
@@ -51,7 +51,7 @@ public class GenresServlet extends HttpServlet {
                 throw new IllegalArgumentException("Отсутствуют данные для выполнения добавления артиста");
             }
 
-            service.add(newGenre);
+            service.created(newGenre);
 
         } catch (RuntimeException e) {
             writer.write("<p>" + e.getMessage() + "</p>");

@@ -5,11 +5,11 @@ import java.util.Objects;
 
 public class VoteDTO {
     private long IdSinger;
-    private List<JenreDTO> IdJenres;
+    private long[] IdJenres;
     private String AboutInfaormation;
     private String mail;
 
-    public VoteDTO(long votingSinger, List<JenreDTO> IdJenres, String aboutInfaormation, String mail) {
+    public VoteDTO(long votingSinger, long[] IdJenres, String aboutInfaormation, String mail) {
         IdSinger = votingSinger;
         this.IdJenres = IdJenres;
         AboutInfaormation = aboutInfaormation;
@@ -24,11 +24,11 @@ public class VoteDTO {
         IdSinger = idSinger;
     }
 
-    public List<JenreDTO> getIdJenres() {
+    public long[] getIdJenres() {
         return IdJenres;
     }
 
-    public void setIdJenres(List<JenreDTO> idJenres) {
+    public void setIdJenres(long[] idJenres) {
         IdJenres = idJenres;
     }
 

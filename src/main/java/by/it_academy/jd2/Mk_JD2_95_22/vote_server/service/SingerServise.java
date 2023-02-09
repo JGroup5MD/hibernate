@@ -33,7 +33,8 @@ public class SingerServise {
         return getNameSinger(id);
     }
 
-    public boolean created(String newNameSinger, Singers singers){
+    public boolean created(String newNameSinger){
+       Singers singers=new Singers();
         List<Singers> list=get();
         Iterator <Singers> iterator=list.iterator();
         if(!iterator.hasNext()){

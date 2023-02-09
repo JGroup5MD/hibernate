@@ -1,6 +1,7 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao;
 
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.IManagerConnection;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.ISingerDAO;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity.Singers;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics.ManagerEntitySingleton;
 
@@ -8,17 +9,17 @@ import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics.ManagerEntitySingl
 import java.util.ArrayList;
 import java.util.List;
 
-public class SingerDAO  {
+public class SingerDAO  implements ISingerDAO {
     private  final IManagerConnection mc;
-    public SingerDAO(ManagerConnection mc) {
-        this.mc = ManagerEntitySingleton.getInstance();
+    public SingerDAO(IManagerConnection manager) {
+        this.mc = manager;
     }
 
     public List<Singers> getAllSinger() {
         List<Singers> list=new ArrayList<>();
         try{
         mc.EntityManager().getTransaction().begin();
-        List <Singers> singers=mc.EntityManager().createQuery("SELECT id, name FROM app.Singer ORDER BY id;").getResultList();
+        List <Singers> singers=mc.EntityManager().createQuery("SELECT id, name FROM app.Singer ORDER BY id;",Singers.class).getResultList();
         mc.EntityManager().getTransaction().commit();
         list.addAll(singers);
         return list;
