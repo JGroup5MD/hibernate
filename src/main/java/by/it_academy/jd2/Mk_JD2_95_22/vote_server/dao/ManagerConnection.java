@@ -6,6 +6,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class ManagerConnection implements IManagerConnection {
+
     private EntityManagerFactory factory;
 
     public ManagerConnection() {

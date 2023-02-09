@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    dao     -->
+
+    <bean id="ArtSing" scope = "singleton" class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics.SingerDaoSingleton"
+          factory-method="getInstance"
+    />
+
+    <bean id="JenSing" scope = "singleton" class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics.JenresDaoSingleton"
+          factory-method="getInstance"
+    />
+
+    <bean id="VotSing" scope = "singleton" class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics.VoteDaoSingleton"
+          factory-method="getInstance"
+    />
+
+
+    <bean id="MailSing" scope = "singleton" class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics.MailDaoSingleton"
+          factory-method="getInstance"
+    />
+
+
+    <bean id="ManSing" scope = "singleton" class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics.ManagerEntitySingleton"
+
+          factory-method="getInstance"
+    />
+
+<!--    servise    -->
+
+    <bean id="AtSerSing" scope = "singleton" class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.fabrics.SingerServiceSingleton"
+
+          factory-method="getInstance"
+    />
+    <bean id="MaiSendSing" scope = "singleton" class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.fabrics.MailServiseSingleton"
+
+          factory-method="getInstance"
+    />
+    <bean id="MailSerSing" scope = "singleton" class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.fabrics.MailSingleton"
+
+          factory-method="getInstance"
+    />
+    <bean  id="JenreSerSing" scope = "singleton" class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.fabrics.JenresServiceSingleton"
+
+          factory-method="getInstance"
+    />
+    <bean id="VoteSerSing" scope = "singleton" class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.fabrics.VoteServiceSingleton"
+
+          factory-method="getInstance"
+    />
+    <bean id="StatisticSerSing" scope = "singleton" class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.fabrics.StatisticServiseSingleton"
+
+          factory-method="getInstance"
+    />
+
+<!--    ManagerConnection -->
+
+
+    <bean id="Manager..." class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.ManagerConnection" init-method="EntityManager">
+
+    </bean >
+
+<!--    DAOclass    -->
+
+    <bean id="SingDAO..." class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.SingerDAO">
+       <property name=" " ref="ArtSing"/>
+    </bean >
+
+    <bean id="JenDAO..." class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.JenreDAO">
+        <property name=" " ref="JenSing"/>
+    </bean >
+
+    <bean id="VotDAO..." class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.VoteDAO">
+        <property name=" " ref="VotSing"/>
+    </bean >
+
+
+    <bean id="MaiDAO..." class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.MailDAO">
+    <property name=" " ref="VotSing"/>
+    </bean >
+
+<!--    Serviseclass   -->
+
+    <bean id="SiServ..." class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.SingerServise">
+        <property name=" " ref="AtSerSing"/>
+    </bean >
+
+    <bean id="MaiServ..." class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.MailSendingServise">
+        <property name=" " ref="MaiSendSing"/>
+    </bean >
+
+
+    <bean id="JenSer..." class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.JenresService">
+        <property name=" " ref="JenreSerSing"/>
+    </bean >
+
+    <bean id="StarSer.." class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.StatisticServise">
+        <property name=" " ref="StatisticSerSing"/>
+    </bean >
+
+
+
+<!--    <bean id="ArtSing" scope = "singleton" class="by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics.SingerDaoSingleton"-->
+<!--        factory-method="getInstance">-->
+<!--        <constructor-arg name=" " value="instance" />-->
+<!--    </bean>-->
+
+
+
+
+</beans>
