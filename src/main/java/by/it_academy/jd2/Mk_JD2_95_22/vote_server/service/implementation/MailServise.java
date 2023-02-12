@@ -27,7 +27,7 @@ public class MailServise implements IMailServise {
     }
 
 
-
+    @Override
     public void save(VoteDTO voteDTO) {
         MailEntity mail = new MailEntity();
         mail.setMessageText(messageText(voteDTO));
@@ -38,7 +38,7 @@ public class MailServise implements IMailServise {
         mailDao.addMail(mail);
     }
 
-
+    @Override
     public boolean update(long id, String message, boolean validateEmail,
                           boolean sendMessage, long lastSendTime, String mail) {
         boolean isUpdate;
@@ -47,18 +47,18 @@ public class MailServise implements IMailServise {
         return isUpdate;
     }
 
-
+    @Override
     public List<MailEntity> getEmailForSend() {
         List<MailEntity> mails = mailDao.mailSender();
         return mails;
     }
-
+    @Override
     public boolean validateEmail(String mail) {
         Matcher matcher = EMAIL_PATTERN.matcher(mail);
         return matcher.matches();
     }
-
-   public String messageText(VoteDTO voteDTO){
+    @Override
+    public String messageText(VoteDTO voteDTO){
         StringBuilder message = new StringBuilder();
         message.append("Голос за артиста:\n        " + singerService.get() +".\n");
         message.append("Голос за жанры:\n");

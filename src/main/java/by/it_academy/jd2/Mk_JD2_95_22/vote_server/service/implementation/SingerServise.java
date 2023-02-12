@@ -21,7 +21,7 @@ public class SingerServise implements ISingerService {
         return iDaoSinger.getAllSinger();
     }
 
-
+    @Override
     public String getNameSinger(long id) {
         List<SingersEntity> list = get();
         for (SingersEntity element : list) {
@@ -33,7 +33,7 @@ public class SingerServise implements ISingerService {
         }
         return getNameSinger(id);
     }
-
+    @Override
     public boolean created(String newNameSinger){
        SingersEntity singers=new SingersEntity();
         List<SingersEntity> list=get();
@@ -49,7 +49,7 @@ public class SingerServise implements ISingerService {
         return  iDaoSinger.created(newNameSinger);
     }
 
-
+    @Override
     public List<SingersEntity> update(long id){
         List<SingersEntity> list=get();
         if (iDaoSinger.exist(id)){
@@ -60,7 +60,7 @@ public class SingerServise implements ISingerService {
         }
      return list;
     }
-
+    @Override
     public boolean delete(long id){
         List<SingersEntity> list=get();
         if (iDaoSinger.exist(id)){
@@ -70,7 +70,7 @@ public class SingerServise implements ISingerService {
         }
         return iDaoSinger.delete(id);
     }
-
+    @Override
     public boolean exist(long id){
         List<SingersEntity> listSingers=iDaoSinger.getAllSinger();
         for(SingersEntity element:listSingers) {
@@ -80,6 +80,7 @@ public class SingerServise implements ISingerService {
         }
         return false;
     }
+    @Override
     public boolean validate(String SingerName) {
         List<SingersEntity> listSingers = iDaoSinger.getAllSinger();
         for(SingersEntity item: listSingers){

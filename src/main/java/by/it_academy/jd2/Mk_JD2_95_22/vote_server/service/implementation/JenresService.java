@@ -20,7 +20,7 @@ public class JenresService implements IJenresService {
         return iJenreDAO.getAllJenres();
     }
 
-
+    @Override
     public String getOneJenre(long id) {
         List<JenresEntity> list = getAllJenres();
         for (JenresEntity element : list) {
@@ -32,7 +32,7 @@ public class JenresService implements IJenresService {
         }
         return getOneJenre(id);
     }
-
+    @Override
     public boolean created(String newNameJenre){
         JenresEntity jenres=new JenresEntity();
         List<JenresEntity> list=getAllJenres();
@@ -48,7 +48,7 @@ public class JenresService implements IJenresService {
         return  iJenreDAO.created(newNameJenre);
     }
 
-
+    @Override
     public List<JenresEntity> update(long id){
         List<JenresEntity> list=getAllJenres();
         if (iJenreDAO.exist(id)){
@@ -59,7 +59,7 @@ public class JenresService implements IJenresService {
         }
         return list;
     }
-
+    @Override
     public boolean delete(long id){
         List<JenresEntity> list=getAllJenres();
         if (iJenreDAO.exist(id)){
@@ -69,7 +69,7 @@ public class JenresService implements IJenresService {
         }
         return iJenreDAO.delete(id);
     }
-
+    @Override
     public boolean exist(long id){
         List<JenresEntity> listJenres=iJenreDAO.getAllJenres();
         for(JenresEntity element:listJenres) {
@@ -79,6 +79,7 @@ public class JenresService implements IJenresService {
         }
         return false;
     }
+    @Override
     public boolean validate(String jenreName) {
         List<JenresEntity> listJenres = iJenreDAO.getAllJenres();
         for(JenresEntity item: listJenres){

@@ -45,7 +45,7 @@ public class MailSenderAndValidate implements IMailSenderAndVAlidate {
         this.properties.setProperty(EMAIL_USER_PASSWORD, prop.getProperty(EMAIL_USER_PASSWORD));
     }
 
-
+    @Override
     public void sendEmail(VoteDTO vdto) {
         if (validateEmail(vdto.getMailAdress())) {
             System.out.println("Адрес электронной почты: " + vdto.getMailAdress() + " указан корректно");
@@ -103,7 +103,7 @@ public class MailSenderAndValidate implements IMailSenderAndVAlidate {
         }
     }
 
-
+    @Override
     public boolean validateEmail(String email) {
         Matcher matcher = EMAIL_PATTERN.matcher(email);
         return matcher.matches();

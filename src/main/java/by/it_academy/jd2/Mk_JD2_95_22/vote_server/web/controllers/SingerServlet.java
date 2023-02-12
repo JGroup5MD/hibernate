@@ -17,7 +17,7 @@ import java.util.Map;
 
 @WebServlet(name = "SingersServlet", urlPatterns = "/singer")
 
-public class SingerServletNew  extends HttpServlet {
+public class SingerServlet extends HttpServlet {
 
 
         private final String DELETE = "delete";
@@ -27,7 +27,7 @@ public class SingerServletNew  extends HttpServlet {
 
         private final SingerServise service;
 
-        public SingerServletNew() {
+        public SingerServlet() {
             this.service = SingerServiceSingleton.getInstance();
         }
 

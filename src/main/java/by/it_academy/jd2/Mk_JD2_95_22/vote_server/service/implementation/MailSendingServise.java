@@ -35,7 +35,7 @@ public class MailSendingServise  implements IMailSendingServise {
         this.mailService = mailService;
     }
 
-
+        @Override
         public void startEmailSender(long timeSendSec){
             while (isSendingEmails){
                 sendEmail();
@@ -46,11 +46,11 @@ public class MailSendingServise  implements IMailSendingServise {
                 }
             }
         }
-
+        @Override
         public void stopEmailSender(){
             this.isSendingEmails = false;
         }
-
+        @Override
         public void sendEmail() {
             List<MailEntity> emails = mailService.getEmailForSend();
             if(emails==null){
