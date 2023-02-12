@@ -1,25 +1,24 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.fabrics;
 
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.SingerDAO;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics.ManagerEntitySingleton;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics.SingerDaoSingleton;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.SingerServise;
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.api.ISingerService;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.implementation.SingerServise;
 
 public class SingerServiceSingleton {
-    private volatile static SingerServise instance;
 
-    private SingerServiceSingleton() {
-    }
+        private volatile static SingerServise instance;
 
-    public static SingerServise getInstance() {
-        if(instance == null){
-            synchronized (SingerServiceSingleton.class){
-                if(instance == null){
-                    instance = new SingerServise(SingerDaoSingleton.getInstance());
+        private SingerServiceSingleton() {
+        }
+
+        public static SingerServise getInstance() {
+            if(instance == null){
+                synchronized (SingerServiceSingleton.class){
+                    if(instance == null){
+                        instance = new SingerServise(SingerDaoSingleton.getInstance());
+                    }
                 }
             }
+            return instance;
+
         }
-        return instance;
-    }
 }

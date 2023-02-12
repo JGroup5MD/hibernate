@@ -1,20 +1,20 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.fabrics;
 
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.StatisticServise;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.service.implementation.StatisticServise;
 
 public class StatisticServiseSingleton {
-    private volatile static StatisticServise instance;
+    private volatile  static StatisticServise instance;
 
-    private StatisticServiseSingleton() {
+    public StatisticServiseSingleton() {
     }
 
     public static StatisticServise getInstance() {
-        if(instance == null){
+        if(instance==null){
             synchronized (StatisticServiseSingleton.class){
-                if(instance == null){
-                    instance = new StatisticServise(SingerServiceSingleton.getInstance(),
-                                                    JenresServiceSingleton.getInstance(),
-                                                     VoteServiceSingleton.getInstance());
+                if(instance==null){
+                    instance=new StatisticServise(SingerServiceSingleton.getInstance(),
+                                                  JenresServiceSingleton.getInstance(),
+                                                  VoteServiceSingleton.getInstance());
                 }
             }
         }

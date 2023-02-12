@@ -1,6 +1,6 @@
 package by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.fabrics;
 
-import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.JenreDAO;
+import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.models.JenreDAO;
 import by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.api.IJenreDAO;
 
 public class JenresDaoSingleton {
