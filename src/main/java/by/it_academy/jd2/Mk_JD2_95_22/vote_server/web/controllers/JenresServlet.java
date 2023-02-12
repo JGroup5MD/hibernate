@@ -14,14 +14,14 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "GenresServlet", urlPatterns = "/genre")
-public class GenresServlet extends HttpServlet {
+@WebServlet(name = "GenresServlet", urlPatterns = "/jenre")
+public class JenresServlet extends HttpServlet {
     private final String ADD = "add";
     private final String DELETE = "delete";
 
     private final IJenresService service;
 
-    public GenresServlet() {
+    public JenresServlet() {
         this.service = JenresServiceSingleton.getInstance();
     }
 

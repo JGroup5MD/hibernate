@@ -10,7 +10,7 @@
         <class>by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity.SingersEntity</class>
         <class>by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity.JenresEntity</class>
         <class>by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity.VoteEntity</class>
-
+        <class>by.it_academy.jd2.Mk_JD2_95_22.vote_server.dao.entity.MailEntity</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
